@@ -23,7 +23,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 INCLUDEPATH += Utilities \
-    Maths
+    Maths \
+    Materials \
+    World \
+    Tracers \
+    GeometricObjects \
+    GeometricObjects/Primitives \
+
 
 SOURCES += main.cpp\
         widget.cpp \
@@ -33,7 +39,17 @@ SOURCES += main.cpp\
     Maths/Point3D.cpp \
     Maths/Vector3D.cpp \
     Maths/Matrix.cpp \
-    Maths/Normal.cpp
+    Maths/Normal.cpp \
+    GeometricObjects/GeometricObject.cpp \
+    Materials/Material.cpp \
+    World/ViewPlane.cpp \
+    World/World.cpp \
+    Tracers/Tracer.cpp \
+    Utilities/BBox.cpp \
+    GeometricObjects/Primitives/Plane.cpp \
+    GeometricObjects/Primitives/Sphere.cpp \
+    Utilities/Ray.cpp \
+    Utilities/ShadeRec.cpp
 
 HEADERS  += widget.h \
     Maths/Constants.h \
@@ -43,6 +59,14 @@ HEADERS  += widget.h \
     Maths/Point3D.h \
     Maths/Vector3D.h \
     Maths/Matrix.h \
-    Maths/Normal.h
+    Maths/Normal.h \
+    GeometricObjects/GeometricObject.h \
+    Materials/Material.h \
+    World/ViewPlane.h \
+    World/World.h \
+    Tracers/Tracer.h \
+    Utilities/BBox.h \
+    GeometricObjects/Primitives/Plane.h \
+    GeometricObjects/Primitives/Sphere.h
 
 FORMS    += widget.ui
