@@ -49,7 +49,9 @@ SOURCES += main.cpp\
     GeometricObjects/Primitives/Plane.cpp \
     GeometricObjects/Primitives/Sphere.cpp \
     Utilities/Ray.cpp \
-    Utilities/ShadeRec.cpp
+    Utilities/ShadeRec.cpp \
+    Tracers/SingleSphere.cpp \
+    Tracers/MultipleObjects.cpp
 
 HEADERS  += widget.h \
     Maths/Constants.h \
@@ -67,6 +69,7 @@ HEADERS  += widget.h \
     Tracers/Tracer.h \
     Utilities/BBox.h \
     GeometricObjects/Primitives/Plane.h \
-    GeometricObjects/Primitives/Sphere.h
+    GeometricObjects/Primitives/Sphere.h \
+    Tracers/MultipleObjects.h
 
 FORMS    += widget.ui

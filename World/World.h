@@ -13,7 +13,7 @@
 
 
 #include <vector>
-
+#include <QImage>
 #include "ViewPlane.h"
 #include "RGBColor.h"
 #include "Tracer.h"
@@ -36,6 +36,7 @@ class World {
 		vector<GeometricObject*>	objects;		
 		
         //RenderThread* 				paintArea; 	//connection to skeleton - wxRaytracer.h
+        QImage*                     image;
 			
 
 	public:
@@ -51,7 +52,7 @@ class World {
 		build(void);
 
 		void 												
-		render_scene(void) const;
+        render_scene(void) const;
 						
 		RGBColor
 		max_to_one(const RGBColor& c) const;
@@ -66,10 +67,11 @@ class World {
 		hit_bare_bones_objects(const Ray& ray);
 						
 	private:
-		
-		void 
-		delete_objects(void);
+        void delete_objects(void);
 
+        void buildSingleSphere();
+        void buildMultipleObjects();
+        void buildBBCoverPic();
 };
 
 

@@ -1,7 +1,7 @@
 #include "widget.h"
 #include "ui_widget.h"
-#include <QPainter>
-#include <QImage>
+
+#include "World.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -15,12 +15,17 @@ Widget::~Widget()
     delete ui;
 }
 
-void Widget::paintEvent(QPaintEvent* )
+void Widget::show()
+{
+    World* w = new World();
+    w->build();
+    w->render_scene();
+    m_image = w->image;
+    QWidget::show();
+}
+
+void Widget::paintEvent(QPaintEvent*)
 {
     QPainter painter(this);
-    for (int i = 0; i < 12; ++i)
-    {
-        painter.drawLine(88, 0, 96, 0);
-        painter.rotate(30.0);
-    }
+    painter.drawImage( QRectF(0,0,this->width(), this->height()), *m_image);
 }
