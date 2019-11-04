@@ -1,7 +1,7 @@
 #include "widget.h"
 #include "ui_widget.h"
 
-#include "World.h"
+#include "raytracer.h"
 
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
@@ -17,15 +17,14 @@ Widget::~Widget()
 
 void Widget::show()
 {
-    World* w = new World();
-    w->build();
-    w->render_scene();
-    m_image = w->image;
+    m_rayTracer = new RayTracer();
+    m_rayTracer->build();
+    m_rayTracer->render();
     QWidget::show();
 }
 
 void Widget::paintEvent(QPaintEvent*)
 {
     QPainter painter(this);
-    painter.drawImage( QRectF(0,0,this->width(), this->height()), *m_image);
+    painter.drawImage( QRectF(0,0,this->width(), this->height()), *m_rayTracer->image());
 }

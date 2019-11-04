@@ -22,54 +22,30 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-INCLUDEPATH += Utilities \
-    Maths \
-    Materials \
-    World \
-    Tracers \
-    GeometricObjects \
-    GeometricObjects/Primitives \
-
+INCLUDEPATH += Core \
+    Object \
+    Maths
 
 SOURCES += main.cpp\
         widget.cpp \
-    Maths/Maths.cpp \
-    Utilities/RGBColor.cpp \
-    Maths/Point2D.cpp \
-    Maths/Point3D.cpp \
-    Maths/Vector3D.cpp \
-    Maths/Matrix.cpp \
-    Maths/Normal.cpp \
-    GeometricObjects/GeometricObject.cpp \
-    Materials/Material.cpp \
-    World/ViewPlane.cpp \
-    World/World.cpp \
-    Tracers/Tracer.cpp \
-    Utilities/BBox.cpp \
-    GeometricObjects/Primitives/Plane.cpp \
-    GeometricObjects/Primitives/Sphere.cpp \
-    Utilities/Ray.cpp \
-    Utilities/ShadeRec.cpp \
-    Tracers/SingleSphere.cpp \
-    Tracers/MultipleObjects.cpp
+    Core/raytracer.cpp \
+    Core/panelview.cpp \
+    Core/world.cpp \
+    Core/ray.cpp \
+    Object/abstractobject.cpp \
+    Object/plane.cpp \
+    Object/sphere.cpp \
+    Core/fragment.cpp
 
 HEADERS  += widget.h \
-    Maths/Constants.h \
-    Maths/Maths.h \
-    Utilities/RGBColor.h \
-    Maths/Point2D.h \
-    Maths/Point3D.h \
-    Maths/Vector3D.h \
-    Maths/Matrix.h \
-    Maths/Normal.h \
-    GeometricObjects/GeometricObject.h \
-    Materials/Material.h \
-    World/ViewPlane.h \
-    World/World.h \
-    Tracers/Tracer.h \
-    Utilities/BBox.h \
-    GeometricObjects/Primitives/Plane.h \
-    GeometricObjects/Primitives/Sphere.h \
-    Tracers/MultipleObjects.h
+    Core/raytracer.h \
+    Core/panelview.h \
+    Core/world.h \
+    Core/ray.h \
+    Object/abstractobject.h \
+    Object/plane.h \
+    Object/sphere.h \
+    Core/fragment.h \
+    Maths/define.h
 
 FORMS    += widget.ui

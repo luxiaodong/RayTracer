@@ -6,6 +6,8 @@
 #include <QImage>
 #include <QDebug>
 
+#include "raytracer.h"
+
 namespace Ui {
 class Widget;
 }
@@ -25,7 +27,8 @@ protected:
 
 private:
     Ui::Widget *ui;
-    QImage* m_image;
+
+    RayTracer* m_rayTracer;
 };
 
 #endif // WIDGET_H
