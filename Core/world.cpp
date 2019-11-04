@@ -10,9 +10,9 @@ World::World()
 void World::build()
 {
     m_objects.clear();
-    //this->buildSingleSphere();
+    this->buildSingleSphere();
     //this->buildMultipleObjects();
-    this->buildBBCoverPic();
+    //this->buildBBCoverPic();
 }
 
 bool World::hit(Ray ray)

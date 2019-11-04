@@ -1,14 +1,15 @@
-#ifndef REGULAR_H
-#define REGULAR_H
+#ifndef RANDOM_H
+#define RANDOM_H
 
 #include "sampler.h"
 
-class Regular : public Sampler
+class Random : public Sampler
 {
 public:
-    Regular();
+    Random();
 
 public:
+    float randomOne();
     void setNumber(int num);
     virtual void generate();
 
@@ -16,4 +17,4 @@ private:
     int m_number;
 };
 
-#endif // REGULAR_H
+#endif // RANDOM_H

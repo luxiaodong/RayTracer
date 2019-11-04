@@ -1,6 +1,8 @@
 #include "raytracer.h"
 #include "fragment.h"
 #include <QDebug>
+#include <QVector4D>
+#include <QtMath>
 
 RayTracer::RayTracer()
 {
@@ -10,7 +12,7 @@ RayTracer::RayTracer()
 void RayTracer::build()
 {
     m_panelView.setSize(QSize(400,400));
-    m_panelView.setPixelSize(0.5);
+    m_panelView.setPixelSize(1);
     m_world.build();
 }
 
@@ -23,15 +25,37 @@ void RayTracer::render()
     {
         for(int i = 0; i < s.width(); ++i)
         {
-            Ray ray = m_panelView.ray(i,j);
-            if(m_world.hit(ray))
+            QVector4D color(0,0,0,0);
+            foreach (QPointF spt, m_panelView.m_sampler->m_samplers)
             {
-                this->writeToImage(i, j, m_world.fragment()->m_color);
+                QPointF pt = m_panelView.convertPoint(QPointF(i,j) + spt );
+                Ray ray;
+                ray.m_origin = QVector3D(pt.x(), pt.y(), 100);
+                ray.m_direction = QVector3D(0,0,-1);
+
+                QColor hitColor;
+                if(m_world.hit(ray))
+                {
+                    hitColor = m_world.fragment()->m_color;
+                }
+                else
+                {
+                    hitColor = m_panelView.backgroundColor();
+                }
+
+//                pt = QPointF(i*1.0/40,j*1.0/40);
+//                float c = 0.5*(1+qSin(pt.x()*pt.x()*pt.y()*pt.y()))*255;
+//                hitColor = QColor(c,c,c,255);
+
+                color.setX( color.x() + hitColor.red() );
+                color.setY( color.y() + hitColor.green() );
+                color.setZ( color.z() + hitColor.blue() );
+                color.setW( color.w() + hitColor.alpha() );
             }
-            else
-            {
-                this->writeToImage(i, j, m_panelView.backgroundColor());
-            }
+
+            int count = m_panelView.m_sampler->m_samplers.count();
+            QColor avagerColor = QColor(color.x()/count, color.y()/count,color.z()/count,color.w()/count);
+            this->writeToImage(i, j, avagerColor);
         }
     }
 }

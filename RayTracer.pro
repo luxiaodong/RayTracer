@@ -24,7 +24,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 INCLUDEPATH += Core \
     Object \
-    Maths
+    Maths \
+    Samplers
 
 SOURCES += main.cpp\
         widget.cpp \
@@ -35,7 +36,10 @@ SOURCES += main.cpp\
     Object/abstractobject.cpp \
     Object/plane.cpp \
     Object/sphere.cpp \
-    Core/fragment.cpp
+    Core/fragment.cpp \
+    Samplers/sampler.cpp \
+    Samplers/regular.cpp \
+    Samplers/random.cpp
 
 HEADERS  += widget.h \
     Core/raytracer.h \
@@ -46,6 +50,9 @@ HEADERS  += widget.h \
     Object/plane.h \
     Object/sphere.h \
     Core/fragment.h \
-    Maths/define.h
+    Maths/define.h \
+    Samplers/sampler.h \
+    Samplers/regular.h \
+    Samplers/random.h
 
 FORMS    += widget.ui
