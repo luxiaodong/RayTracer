@@ -39,7 +39,11 @@ SOURCES += main.cpp\
     Core/fragment.cpp \
     Samplers/sampler.cpp \
     Samplers/regular.cpp \
-    Samplers/random.cpp
+    Samplers/random.cpp \
+    Object/checkerboardplane.cpp \
+    Samplers/jittered.cpp \
+    Samplers/nrooks.cpp \
+    Samplers/multijittered.cpp
 
 HEADERS  += widget.h \
     Core/raytracer.h \
@@ -53,6 +57,10 @@ HEADERS  += widget.h \
     Maths/define.h \
     Samplers/sampler.h \
     Samplers/regular.h \
-    Samplers/random.h
+    Samplers/random.h \
+    Object/checkerboardplane.h \
+    Samplers/jittered.h \
+    Samplers/nrooks.h \
+    Samplers/multijittered.h
 
 FORMS    += widget.ui

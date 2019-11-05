@@ -2,6 +2,7 @@
 
 #include "plane.h"
 #include "sphere.h"
+#include "checkerboardplane.h"
 
 World::World()
 {
@@ -10,7 +11,8 @@ World::World()
 void World::build()
 {
     m_objects.clear();
-    this->buildSingleSphere();
+    this->buildCheckboard();
+    //this->buildSingleSphere();
     //this->buildMultipleObjects();
     //this->buildBBCoverPic();
 }
@@ -46,7 +48,7 @@ bool World::hit(Ray ray)
 
 void World::buildSingleSphere()
 {
-    AbstractObject* s = new Sphere(QVector3D(0,0,0), 85);
+    AbstractObject* s = new Sphere(QVector3D(0,0,-400), 15);
     s->setColor(QColor(255,0,0));
     m_objects.append(s);
 }
@@ -63,6 +65,12 @@ void World::buildMultipleObjects()
 
     s = new Plane(QVector3D(0,0,0), QVector3D(0,1,1));
     s->setColor(QColor(0,255*0.3,0));
+    m_objects.append(s);
+}
+
+void World::buildCheckboard()
+{
+    AbstractObject* s = new CheckerboardPlane(QVector3D(0,0,0), QVector3D(0,1,1));
     m_objects.append(s);
 }
 

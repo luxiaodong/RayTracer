@@ -19,6 +19,7 @@ private:
     void buildSingleSphere();
     void buildMultipleObjects();
     void buildBBCoverPic();
+    void buildCheckboard();
 
 private:
     QList<AbstractObject*> m_objects;

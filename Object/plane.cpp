@@ -18,7 +18,13 @@ Plane::~Plane()
 
 bool Plane::hit(const Ray& ray)
 {
-    float t =  QVector3D::dotProduct(m_origin - ray.m_origin, m_normal)/QVector3D::dotProduct(ray.m_direction, m_normal);
+    float s = QVector3D::dotProduct(ray.m_direction, m_normal);
+    if(qAbs(s) < kEpsilon)
+    {
+        return false;
+    }
+
+    float t =  QVector3D::dotProduct(m_origin - ray.m_origin, m_normal)/s;
     if(t > kEpsilon)
     {
         m_fragment = new Fragment(ray);

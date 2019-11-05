@@ -2,12 +2,6 @@
 
 Regular::Regular()
 {
-    m_number = 1;
-}
-
-void Regular::setNumber(int num)
-{
-    m_number = num;
 }
 
 void Regular::generate()
@@ -17,7 +11,7 @@ void Regular::generate()
     {
         for (int q = 0; q < n; q++)
         {
-            m_samplers.append( QPointF( (q + 0.5)/n, (p + 0.5)/n) );
+            m_samplers.append( QVector2D( (q + 0.5)/n, (p + 0.5)/n) );
         }
     }
 }

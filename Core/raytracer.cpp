@@ -6,7 +6,6 @@
 
 RayTracer::RayTracer()
 {
-
 }
 
 void RayTracer::build()
@@ -26,12 +25,14 @@ void RayTracer::render()
         for(int i = 0; i < s.width(); ++i)
         {
             QVector4D color(0,0,0,0);
-            foreach (QPointF spt, m_panelView.m_sampler->m_samplers)
+            foreach (QVector2D spt, m_panelView.m_sampler->m_samplers)
             {
-                QPointF pt = m_panelView.convertPoint(QPointF(i,j) + spt );
+                QVector2D pt = m_panelView.convertPoint(QVector2D(i,j) + spt);
                 Ray ray;
-                ray.m_origin = QVector3D(pt.x(), pt.y(), 100);
-                ray.m_direction = QVector3D(0,0,-1);
+//                ray.m_origin = QVector3D(pt.x(), pt.y(), 100);
+//                ray.m_direction = QVector3D(0,0,-1);
+                ray.m_origin = QVector3D(0, 0, m_panelView.eye());
+                ray.m_direction = QVector3D(pt.x(), pt.y(), -m_panelView.eye()).normalized();
 
                 QColor hitColor;
                 if(m_world.hit(ray))
@@ -43,7 +44,7 @@ void RayTracer::render()
                     hitColor = m_panelView.backgroundColor();
                 }
 
-//                pt = QPointF(i*1.0/40,j*1.0/40);
+//                pt = QVector2D(i*1.0/40,j*1.0/40);
 //                float c = 0.5*(1+qSin(pt.x()*pt.x()*pt.y()*pt.y()))*255;
 //                hitColor = QColor(c,c,c,255);
 

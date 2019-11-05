@@ -9,11 +9,7 @@ public:
     Regular();
 
 public:
-    void setNumber(int num);
     virtual void generate();
-
-private:
-    int m_number;
 };
 
 #endif // REGULAR_H
