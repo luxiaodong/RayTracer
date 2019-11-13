@@ -4,6 +4,7 @@
 #include <QImage>
 #include "world.h"
 #include "panelview.h"
+#include "camera.h"
 
 class RayTracer
 {
@@ -18,6 +19,7 @@ private:
 
 private:
     QImage* m_image;
+    Camera* m_camera;
     World m_world;
     PanelView m_panelView;
 };

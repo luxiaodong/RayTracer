@@ -3,6 +3,7 @@
 #include "plane.h"
 #include "sphere.h"
 #include "checkerboardplane.h"
+#include "opencylinder.h"
 
 World::World()
 {
@@ -11,7 +12,8 @@ World::World()
 void World::build()
 {
     m_objects.clear();
-    this->buildCheckboard();
+    this->buildCylinder();
+    //this->buildCheckboard();
     //this->buildSingleSphere();
     //this->buildMultipleObjects();
     //this->buildBBCoverPic();
@@ -70,7 +72,17 @@ void World::buildMultipleObjects()
 
 void World::buildCheckboard()
 {
-    AbstractObject* s = new CheckerboardPlane(QVector3D(0,0,0), QVector3D(0,1,1));
+    AbstractObject* s = new CheckerboardPlane(QVector3D(0,-10,0), QVector3D(0,1,0));
+    m_objects.append(s);
+}
+
+void World::buildCylinder()
+{
+    AbstractObject* s = new CheckerboardPlane(QVector3D(0,-10,0), QVector3D(0,1,1));
+    m_objects.append(s);
+
+    s = new OpenCylinder(QVector3D(0,40,-30), 10, 40);
+    s->setColor(QColor(255,0,0));
     m_objects.append(s);
 }
 

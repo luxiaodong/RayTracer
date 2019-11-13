@@ -18,7 +18,6 @@ public:
     void setSize(QSize size);
     void setPixelSize(float pixelSize);
     void setBackgroundColor(QColor &c);
-    float eye(){return m_eye;}
 
 public:
     QSize size(){return m_size;}
@@ -33,7 +32,6 @@ private:
     QColor m_backgroundColor;
     QSize m_size;
     float m_pixelSize;
-    float m_eye;
 };
 
 #endif // PANELVIEW_H

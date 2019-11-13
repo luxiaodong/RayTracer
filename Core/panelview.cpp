@@ -8,7 +8,6 @@ PanelView::PanelView()
 {
     m_size = QSize(200,200);
     m_pixelSize = 1.0;
-    m_eye = 100.0;
     m_backgroundColor = QColor(0,0,0);
 
 //    Sampler* s = new Sampler();
@@ -18,7 +17,7 @@ PanelView::PanelView()
 //    Random* s = new Random();
 //    s->setNumber(1);
 
-    s->setNumber(10);
+    s->setNumber(2);
     s->generate();
     m_sampler = s;
 }

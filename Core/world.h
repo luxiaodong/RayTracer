@@ -20,6 +20,7 @@ private:
     void buildMultipleObjects();
     void buildBBCoverPic();
     void buildCheckboard();
+    void buildCylinder();
 
 private:
     QList<AbstractObject*> m_objects;

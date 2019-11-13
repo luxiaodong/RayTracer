@@ -25,7 +25,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 INCLUDEPATH += Core \
     Object \
     Maths \
-    Samplers
+    Samplers \
+    Cameras \
 
 SOURCES += main.cpp\
         widget.cpp \
@@ -43,7 +44,14 @@ SOURCES += main.cpp\
     Object/checkerboardplane.cpp \
     Samplers/jittered.cpp \
     Samplers/nrooks.cpp \
-    Samplers/multijittered.cpp
+    Samplers/multijittered.cpp \
+    Cameras/camera.cpp \
+    Cameras/orthographic.cpp \
+    Cameras/perspective.cpp \
+    Object/opencylinder.cpp \
+    Object/torus.cpp \
+    Cameras/pinhole.cpp \
+    Cameras/thinlens.cpp
 
 HEADERS  += widget.h \
     Core/raytracer.h \
@@ -61,6 +69,13 @@ HEADERS  += widget.h \
     Object/checkerboardplane.h \
     Samplers/jittered.h \
     Samplers/nrooks.h \
-    Samplers/multijittered.h
+    Samplers/multijittered.h \
+    Cameras/camera.h \
+    Cameras/orthographic.h \
+    Cameras/perspective.h \
+    Object/opencylinder.h \
+    Object/torus.h \
+    Cameras/pinhole.h \
+    Cameras/thinlens.h
 
 FORMS    += widget.ui

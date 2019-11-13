@@ -4,6 +4,12 @@
 #include <QVector4D>
 #include <QtMath>
 
+#include "orthographic.h"
+#include "perspective.h"
+#include "pinhole.h"
+#include "pinhole.h"
+#include "thinlens.h"
+
 RayTracer::RayTracer()
 {
 }
@@ -20,6 +26,13 @@ void RayTracer::render()
     QSize s = m_panelView.size();
     m_image = new QImage(s, QImage::Format_RGBA8888);
 
+//    Perspective* camera = new Perspective();
+//    Orthographic* camera = new Orthographic();
+//    Pinhole* camera = new Pinhole();
+    ThinLens* camera = new ThinLens();
+    camera->setEye(100);
+    m_camera = camera;
+
     for(int j = 0; j < s.height(); ++j)
     {
         for(int i = 0; i < s.width(); ++i)
@@ -28,12 +41,7 @@ void RayTracer::render()
             foreach (QVector2D spt, m_panelView.m_sampler->m_samplers)
             {
                 QVector2D pt = m_panelView.convertPoint(QVector2D(i,j) + spt);
-                Ray ray;
-//                ray.m_origin = QVector3D(pt.x(), pt.y(), 100);
-//                ray.m_direction = QVector3D(0,0,-1);
-                ray.m_origin = QVector3D(0, 0, m_panelView.eye());
-                ray.m_direction = QVector3D(pt.x(), pt.y(), -m_panelView.eye()).normalized();
-
+                Ray ray = m_camera->ray(pt);
                 QColor hitColor;
                 if(m_world.hit(ray))
                 {

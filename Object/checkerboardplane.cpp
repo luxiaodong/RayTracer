@@ -38,9 +38,10 @@ QColor CheckerboardPlane::color(QVector3D pos)
     int cell = 16;
     QQuaternion q = QQuaternion::rotationTo(m_normal, QVector3D(0,1,0));
     QVector3D out = q.rotatedVector(pos);
-
-    int x = qFloor( (out.x() + out.z())/cell );
-    int y = qFloor( (out.x() - out.z())/cell );
+    int x = qFloor(out.x()/cell);
+    int y = qFloor(out.z()/cell);
+//    int x = qFloor( (out.x() + out.z())/cell );
+//    int y = qFloor( (out.x() - out.z())/cell );
 
     if((x+y)%2 == 0)
     {
