@@ -51,7 +51,8 @@ SOURCES += main.cpp\
     Object/opencylinder.cpp \
     Object/torus.cpp \
     Cameras/pinhole.cpp \
-    Cameras/thinlens.cpp
+    Cameras/thinlens.cpp \
+    Cameras/fisheye.cpp
 
 HEADERS  += widget.h \
     Core/raytracer.h \
@@ -76,6 +77,7 @@ HEADERS  += widget.h \
     Object/opencylinder.h \
     Object/torus.h \
     Cameras/pinhole.h \
-    Cameras/thinlens.h
+    Cameras/thinlens.h \
+    Cameras/fisheye.h
 
 FORMS    += widget.ui

@@ -14,3 +14,8 @@ float Camera::eye()
 {
     return m_eye;
 }
+
+bool Camera::isValidRay()
+{
+    return true;
+}

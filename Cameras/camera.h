@@ -11,6 +11,7 @@ public:
     void setEye(float eye);
     float eye();
     virtual Ray ray(QVector2D pt) = 0;
+    virtual bool isValidRay();
 
 protected:
     float m_eye;
