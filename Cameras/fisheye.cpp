@@ -7,6 +7,7 @@ Fisheye::Fisheye()
     m_maxAngle = 0.5*M_PI;
     m_isVaildRay = true;
     m_size = QSize(200,200);
+    //panelview m_pixelSize must 1
 }
 
 void Fisheye::setViewSize(QSize size)
@@ -35,7 +36,7 @@ Ray Fisheye::ray(QVector2D pt)
 
     Ray ray;
     ray.m_origin = QVector3D(0,0,m_eye);
-    ray.m_direction = QVector3D(sin_psi*cos_alpha, sin_psi*sin_alpha, -cos_psi).normalized();
+    ray.m_direction = QVector3D(sin_psi*cos_alpha, sin_psi*sin_alpha, -1.0*cos_psi).normalized(); //-1.0是因为光线朝向z轴负方向
     m_isVaildRay = true;
     return ray;
 }
