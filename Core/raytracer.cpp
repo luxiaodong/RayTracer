@@ -10,6 +10,7 @@
 #include "pinhole.h"
 #include "thinlens.h"
 #include "fisheye.h"
+#include "spherical.h"
 
 RayTracer::RayTracer()
 {
@@ -31,8 +32,9 @@ void RayTracer::render()
 //    Orthographic* camera = new Orthographic();
 //    Pinhole* camera = new Pinhole();
 //    ThinLens* camera = new ThinLens();
-    Fisheye* camera = new Fisheye();
-//    camera->setViewSize( m_panelView.size() );
+//    Fisheye* camera = new Fisheye();
+    Spherical* camera = new Spherical();
+    camera->setViewSize( m_panelView.size() );
     camera->setEye(100);
     m_camera = camera;
 
